@@ -72,7 +72,7 @@ reporters: ['spec',
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: true,
-        }]
+        }]]
 
 onComplete: function () {
         const reportError = new Error('Could not generate Allure report')
