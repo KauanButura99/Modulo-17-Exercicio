@@ -7,12 +7,13 @@ const registerProducts = require('../screens/registerProduct.screen')
 let url = 'http://lojaebac.ebaconline.art.br/'
 let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
-let product = 'Rolex'
+let product = 'Rolex President Yellow Gold 18k'
 let description = 'By operating its own exclusive foundry, Rolex has the unrivalled ability....'
-let normalPrice = '20000'
-let price = '25000'
+let normalPrice = '20'
+let price = '25'
 
-describe('Acessar Admin Painel', () => {
+describe('Access Admin Painel', () => {
+
   it('should login whith valid credentials', async () => {
     await homeScreen.enterBtn()
     await loginScreen.siteAddress(url, { force: true })
@@ -22,17 +23,20 @@ describe('Acessar Admin Painel', () => {
 
     expect(await myStoreScreen.myStoreLogoIsDisplayed()).toBeTruthy()
     expect(await myStoreScreen.getStoreName()).toEqual('EBAC - Shop')
-
   });
 
-  it('Should register a product on Ebac Store', async () => {
+  it('Should add a photo', async () => {
     await registerProducts.addProductsBtn()
     await registerProducts.addImageBtn()
     await registerProducts.backBtn()
-    await registerProducts.productName(product, description)
   })
-  /*
-    it('Should set price on product  ', async () => {
-      await registerProducts.setPrice(normalPrice, price)
-    })*/
+
+  it('Should register a name to the product ', async () => {
+    await registerProducts.productName(product, description)
+  });
+
+  it('Should set price on product  ', async () => {
+    await registerProducts.setPrice(normalPrice, price)
+  })
+
 });

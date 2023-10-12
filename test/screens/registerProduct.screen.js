@@ -19,8 +19,8 @@ class registerProduct {
   get #writeDescription() { return $(".android.widget.EditText") }
 
   get #addPrice() { return $('android=new UiSelector().text("Add price")') }
-  get #regularPrice() { return $('.android.widget.EditText').index(0) }
-  get #salePrice() { return $('android=new UiSelctor().text("Sale Price")') }
+  get #regularPrice() { return $('android=new UiSelector().text("Regular price")') }
+  get #salePrice() { return $('android=new UiSelector().text("Sale price")') }
 
 
 
@@ -40,19 +40,20 @@ class registerProduct {
     await this.#back.click()
   }
 
-  async productName() {
-    await this.#prdTitle.setValue(product)//Esta com problema, a automação não esta colocando o nome do produto
+  async productName(product, description) {
+    await this.#prdTitle.click()
+    await this.#prdTitle.setValue(product)
     await this.#descriptioBotton.click()
     await this.#writeDescription.setValue(description)
-  }
-
-  async setPrice() {
-    await this.#addPrice.click()
-    await this.#regularPrice.clear().setValue(normalPrice)
-    await this.#salePrice.clear().setValue(price)
     await this.#back.click()
   }
 
+  async setPrice(normalPrice, price) {
+    await this.#addPrice.click()
+    await this.#regularPrice.setValue(normalPrice)
+    await this.#salePrice.setValue(price)
+    await this.#back.click()
+  }
 }
 
 module.exports = new registerProduct()
