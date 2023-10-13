@@ -19,10 +19,10 @@ class registerProduct {
   get #writeDescription() { return $(".android.widget.EditText") }
 
   get #addPrice() { return $('android=new UiSelector().text("Add price")') }
-  get #regularPrice() { return $('android=new UiSelector().text("Regular price")') }
-  get #salePrice() { return $('android=new UiSelector().text("Sale price")') }
+  get #regularPrice() { return $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText') }
+  get #salePrice() { return $('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText') }
 
-
+  get #publish() { return $('android=new UiSelector().text("PUBLISH") ') }
 
   async addProductsBtn() {
     await this.#enterPorduct.click()
@@ -53,6 +53,10 @@ class registerProduct {
     await this.#regularPrice.setValue(normalPrice)
     await this.#salePrice.setValue(price)
     await this.#back.click()
+  }
+
+  async post() {
+    await this.#publish.click()
   }
 }
 

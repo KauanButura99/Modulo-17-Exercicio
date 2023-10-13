@@ -1,3 +1,4 @@
+const { faker } = require('@faker-js/faker');
 const homeScreen = require("../screens/home.screen");
 const loginScreen = require("../screens/login.screen");
 const myStoreScreen = require("../screens/myStore.screen");
@@ -9,8 +10,8 @@ let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let product = 'Rolex President Yellow Gold 18k'
 let description = 'By operating its own exclusive foundry, Rolex has the unrivalled ability....'
-let normalPrice = '20'
-let price = '25'
+let normalPriceFaker = faker.commerce.price()
+let priceFaker = faker.commerce.price()
 
 describe('Access Admin Painel', () => {
 
@@ -36,7 +37,10 @@ describe('Access Admin Painel', () => {
   });
 
   it('Should set price on product  ', async () => {
-    await registerProducts.setPrice(normalPrice, price)
+    await registerProducts.setPrice(normalPriceFaker, priceFaker)
   })
 
+  it("Should post the product ", async () => {
+    await registerProducts.post()
+  })
 });

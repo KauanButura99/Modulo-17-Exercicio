@@ -21,6 +21,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.1.0",
     "allure-commandline": "^2.24.1"
   }
 }
