@@ -1,0 +1,19 @@
+pipeline{
+  agent any
+
+  stages{
+    stage("configuração"){
+      steps{
+        git branch: 'main', url: 'https://github.com/KauanButura99/Modulo-17-Exercicio.git'
+        sh "npm install"
+      }
+    }
+
+    stage("Teste"){
+      steps{
+        sh "NO_COLOR=1 npm test| true"
+      }
+    }
+  }
+
+}
