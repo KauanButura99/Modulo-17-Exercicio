@@ -1,7 +1,7 @@
 
 
 # Teste automatizado Mobile
-Testes feitos no Apk da Woocommerce. Com o intuito de testar o fluxo de login e cadastro de produto na loja EBAC - SHOP. Testes compilados no site BrowserStack. 
+Testes feitos no Apk da Woocommerce. Com o intuito de testar o fluxo de login e cadastro de produtos na loja EBAC - SHOP. Testes compilados no site BrowserStack. 
  
 
 
